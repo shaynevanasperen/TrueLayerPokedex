@@ -1,0 +1,17 @@
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8
+indent_size = 4
+indent_style = tab
+
+# ReSharper properties
+resharper_csharp_max_line_length = 220
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{sln,csproj,props,xml,json,css}]
+indent_size = 2
