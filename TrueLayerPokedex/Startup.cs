@@ -12,6 +12,7 @@ namespace TrueLayerPokedex
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddHttpClient<PokeApiClient>();
+			services.AddHttpClient<FunTranslationsApiClient>();
 			
 			services
 				.AddMemoryCache()

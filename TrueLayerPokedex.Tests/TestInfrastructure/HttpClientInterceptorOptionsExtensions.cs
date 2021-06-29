@@ -14,6 +14,9 @@ namespace TrueLayerPokedex.Tests.TestInfrastructure
 		static readonly Random Random = new();
 
 		public static void RespondWithStatusFor(this HttpClientInterceptorOptions options, Predicate<HttpRequestMessage> predicate, HttpStatusCode statusCode) =>
+			options.RespondWithStatusFor(x => Task.FromResult(predicate(x)), statusCode);
+
+		public static void RespondWithStatusFor(this HttpClientInterceptorOptions options, Func<HttpRequestMessage, Task<bool>> predicate, HttpStatusCode statusCode) =>
 			new HttpRequestInterceptionBuilder()
 				.For(predicate)
 				.Responds()
